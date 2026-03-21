@@ -1,6 +1,8 @@
-#include <cstdio>
+#include "core/application.h"
 
 int main() {
-  std::printf("Hello World!\n");
+  Application app;
+  app.Run();
+
   return 0;
 }

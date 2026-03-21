@@ -1,6 +1,7 @@
 BasedOnStyle: LLVM
 IndentWidth: 2
 ColumnLimit: 120
+SortIncludes: false
 
 BreakBeforeBraces: Attach
 
@@ -11,4 +12,8 @@ DerivePointerAlignment: false
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: Never
 
-NamespaceIndentation: None
+NamespaceIndentation: All
+
+BreakConstructorInitializers: AfterColon
+ConstructorInitializerIndentWidth: 2
+PackConstructorInitializers: Never
