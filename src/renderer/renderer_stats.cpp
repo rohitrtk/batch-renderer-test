@@ -9,12 +9,12 @@ void RendererStats::Reset() {
   m_QuadCount = 0;
 }
 
-void RendererStats::IncrementDrawCalls() {
-  m_DrawCalls++;
+void RendererStats::IncrementDrawCalls(int amount) {
+  m_DrawCalls += amount;
 }
 
-void RendererStats::IncrementQuadCount() {
-  m_QuadCount++;
+void RendererStats::IncrementQuadCount(int amount) {
+  m_QuadCount += amount;
 }
 
 unsigned int RendererStats::GetDrawCalls() const {

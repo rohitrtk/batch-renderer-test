@@ -1,12 +1,12 @@
 #include "shader.h"
 
-#include "utils/file_reader.h"
+#include "utils/file_util.h"
 
 constexpr int k_ErrorInfoLogSize = 512;
 
 Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath) {
-  std::string vertexCodeStr = LoadFileToString(vertexPath);
-  std::string fragmentCodeStr = LoadFileToString(fragmentPath);
+  std::string vertexCodeStr = Utils::LoadFileToString(vertexPath);
+  std::string fragmentCodeStr = Utils::LoadFileToString(fragmentPath);
 
   if (vertexCodeStr.empty()) {
     throw std::runtime_error("Failed to load vertex shader: " + vertexPath);

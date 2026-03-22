@@ -5,8 +5,8 @@ public:
   RendererStats();
 
   void Reset();
-  void IncrementDrawCalls();
-  void IncrementQuadCount();
+  void IncrementDrawCalls(int amount = 1);
+  void IncrementQuadCount(int amount = 1);
 
   unsigned int GetDrawCalls() const;
   unsigned int GetQuadCount() const;

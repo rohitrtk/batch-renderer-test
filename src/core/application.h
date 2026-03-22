@@ -6,8 +6,10 @@
 struct GLFWwindow;
 
 class Renderer2D;
+class BatchRenderer2D;
 class Camera;
 class Texture;
+class GridTextureAtlas;
 
 constexpr int k_WindowWidth = 800;
 constexpr int k_WindowHeight = 600;
@@ -35,8 +37,10 @@ private:
   std::string m_Name;
   GLFWwindow* m_Window;
 
-  std::unique_ptr<Renderer2D> m_Renderer;
+  std::unique_ptr<BatchRenderer2D> m_Renderer;
   std::unique_ptr<Camera> m_Camera;
   std::unique_ptr<Texture> m_Texture;
+  std::unique_ptr<GridTextureAtlas> m_TextureAtlas;
+
   std::vector<Sprite> m_Sprites;
 };

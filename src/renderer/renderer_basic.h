@@ -8,12 +8,6 @@ class Shader;
 class Texture;
 struct Sprite;
 
-struct QuadVertex {
-  glm::vec3 position;
-  glm::vec2 texCoord;
-  glm::vec4 colour;
-};
-
 class Renderer2D {
 public:
   Renderer2D();
@@ -28,11 +22,18 @@ public:
   void ResetStats();
 
 private:
+  struct QuadVertex {
+    glm::vec3 position;
+    glm::vec2 texCoord;
+    glm::vec4 colour;
+  };
+
+private:
   unsigned int m_Vao;
   unsigned int m_Vbo;
   unsigned int m_Ibo;
 
-  Shader* m_Shader;
+  std::unique_ptr<Shader> m_Shader;
 
   glm::mat4 m_View;
   glm::mat4 m_Projection;

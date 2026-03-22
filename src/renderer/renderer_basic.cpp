@@ -1,4 +1,4 @@
-#include "renderer.h"
+#include "renderer_basic.h"
 
 #include "shader.h"
 #include "texture.h"
@@ -9,7 +9,7 @@ Renderer2D::Renderer2D() :
   m_Vao(0),
   m_Vbo(0),
   m_Ibo(0),
-  m_Shader(nullptr),
+  m_Shader(std::make_unique<Shader>("assets/shaders/sprite.vert", "assets/shaders/sprite.frag")),
   m_View(1.0f),
   m_Projection(1.0f) {
   const unsigned int indices[] = {0, 1, 2, 2, 3, 0};
@@ -41,14 +41,9 @@ Renderer2D::Renderer2D() :
 
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-  m_Shader = new Shader("assets/shaders/sprite.vert", "assets/shaders/sprite.frag");
 }
 
 Renderer2D::~Renderer2D() {
-  delete m_Shader;
-  m_Shader = nullptr;
-
   if (m_Ibo != 0) {
     glDeleteBuffers(1, &m_Ibo);
     m_Ibo = 0;
